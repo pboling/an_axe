@@ -1,0 +1,17 @@
+.crumbs{ :xstyle => "margin-top:1.1em;" }
+  = link_to t("savage_beast.forums_title"), forums_forums_path
+  %span.arrow
+    \&rarr;
+  = link_to h(@forum.name), forums_forum_path(@forum)
+  %span.arrow
+    \&rarr;
+%h1#new_topic
+  = t('savage_beast.new_topic')
+%p.subtitle
+  = t("savage_beast.by_user", :user => current_user.display_name)
+= error_messages_for :post
+= error_messages_for :topic
+- form_for :topic, :url  => forums_forum_topics_path(@forum) do |f|
+  = render :partial => "form", :object => f
+  = submit_tag t('savage_beast.post_topic'), :or => link_to(t('savage_beast.cancel'), forums_forum_path(@forum))
+= javascript_tag "$('topic_title').focus();"

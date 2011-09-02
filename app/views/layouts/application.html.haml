@@ -1,0 +1,31 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %title
+      = "#{h @page_title} - " if @page_title
+      = 'Beast'[:beast_title]
+    = stylesheet_link_tag 'savage_beast/display'
+    = javascript_include_tag "application"
+    - # Assumption: If you're a rails project, you already have your own version of these, and don't need the SB version
+    = javascript_include_tag "prototype", "effects"
+    - unless @feed_icons.blank?
+      - @feed_icons.each do |feed|
+        /
+          No RSS for now
+          <haml:silent># auto_discovery_link_tag :rss, feed[:url], :title =&amp;gt; &amp;quot;Subscribe to '\#{feed[:title]}'&amp;quot; </haml:silent>
+    %link{ :href => "http://#{request.host_with_port}/open_search.xml", :rel => "search", :type => "application/opensearchdescription+xml" }
+  %body
+    = render :partial => "layouts/head"
+    #container
+      #content
+        = content_tag 'p', h(flash[:notice]), :class => 'notice' if flash[:notice]
+        = content_tag 'p', h(flash[:error]), :class => 'notice error' if flash[:error]
+        = yield
+      #right
+        = yield :right
+      %br{ :style => "clear:both;" }
+    #footer
+      %p.disclaim
+        %strong
+      %br{ :style => "clear:both;" }

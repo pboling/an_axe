@@ -1,0 +1,30 @@
+#edit.editbox
+  .container
+    - remote_form_for :post, :url => forums_post_path(:forum_id => @post.forum_id, :topic_id => @post.topic_id, :id => @post), :html => { :method => :put }, :before => "$('editbox_spinner').show();" do |f|
+      %table{ :cellspacing => "0", :border => "0", :width => "100%", :cellpadding => "0" }
+        %tr
+          %td{ :rowspan => "2", :width => "70%" }
+            = f.text_area :body, :rows => 10, :id => "edit_post_body", :tabindex => 1
+            #tags
+              %label
+                Tags
+            = f.text_field :body_list, :id => "edit_post_body_list", :tabindex => 2
+          %td{ :valign => "top" }
+            = link_to(t('savage_beast.delete_post'), forums_post_path(:forum_id => @post.topic.forum, :topic_id => @post.topic, :id => @post, :page => params[:page]),  :class => "utility", :method => :delete, :confirm => t("savage_beast.delete_post_conf"))
+            %h5
+              = t('savage_beast.formatting_help')
+            %ul.help
+              %li
+                = t('savage_beast.formatting_bold')
+              %li
+                = t("savage_beast.formatting_italics")
+              %li
+                = t('savage_beast.formatting_blockquote')
+              %li
+                = t('savage_beast.formatting_list')
+        %tr
+          %td{ :valign => "bottom", :style => "padding-bottom:15px;" }
+            = ajax_spinner_for "editbox", "spinner_black.gif"
+            = submit_tag t("savage_beast.save_changes")
+            %span.button_or
+              = link_to_function t('savage_beast.cancel'), "$('edit').hide()"

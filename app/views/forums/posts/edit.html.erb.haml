@@ -1,0 +1,12 @@
+%h1
+  = t("savage_beast.edit_post")
+%h2
+  = link_to h(@post.topic.title), forums_forum_topic_path(@post.forum_id, @post.topic)
+= link_to(t("savage_beast.delete_post"), forums_post_path(:forum_id => @post.forum_id, :topic_id => @post.topic, :id => @post, :page => params[:page]),  :class => "utility", :method => :delete, :confirm => t("savage_beast.delete_post_conf"))
+= error_messages_for :topic
+- form_for :post, :html => { :method => :put }, :url  => forums_post_path(:forum_id => params[:forum_id], :topic_id => params[:topic_id], :id => @post, :page => params[:page]) do |f|
+  %p#post_body
+    = f.text_area :body
+  = submit_tag t("savage_beast.save_title")
+  or
+  = link_to t("savage_beast.cancel"), forums_forum_topic_path(:forum_id => params[:forum_id], :topic_id => params[:topic_id], :page => params[:page])

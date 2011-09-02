@@ -1,0 +1,20 @@
+#forum-form
+  = error_messages_for('forum')
+  %p{ :style => "float:right; margin-top:0" }
+  %p#forum_name
+    %table.noborder.nopad.wide{ :cellspacing => "0", :border => "0", :cellpadding => "0" }
+      %td
+        %label
+          = t("savage_beast.title_title")
+        %br
+        = form.text_field :name, :class => "primary"
+      %td{ :style => "text-align:right" }
+        %label
+          = t("savage_beast.position_title")
+        %br
+        = form.text_field :position, :size => 5
+  %p#forum_descripion
+    %label
+      = t("savage_beast.description_title")
+    %br
+    = form.text_area :description, :rows => 7
