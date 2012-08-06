@@ -1,4 +1,4 @@
-== (Modern Savage Beast with) An Axe
+== (Modern Savage Beast with) An Axe {<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/pboling/an_axe]
 
 An Axe is a Rails3 update and Enginification of Modern Savage Beast, which is a revision
 of the old Savage Beast Plugin.
@@ -18,7 +18,7 @@ Goals:
   Seamless Upgrade from some flavors of (Modern) Savage Beast
   Maintain compatibility with current Rails and Ruby releases.
 
-This version of (Modern Savage Beast with) An Axe has been tested working in Rails 3.0.
+This version of (Modern Savage Beast with) An Axe has been tested almost working in Rails 3.1.
 
 == Installation
 
