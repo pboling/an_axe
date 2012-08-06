@@ -42,11 +42,13 @@ white_list ?
 white_list_formatted_content ?
 
 These gem dependencies will be added to your app (along with their dependencies):
-gem 'kaminari', '~> 0.12' # -will_paginate-
+gem 'will_paginate', '~> 3.0.0'
 gem 'acts_as_list', :git => 'git://github.com/chaffeqa/acts_as_list.git' # -acts_as_list-
 gem 'acts-as-taggable-on', '~> 2.0' # -acts_as_taggable_on-
-gem 'loofah', '~> 1.0.0'
-gem 'loofah-activerecord', '~> 1.0.0'
+
+# TODO: Not sure yet how to implement the sanitization of fields
+#gem 'loofah', '~> 1.0.0'
+#gem 'loofah-activerecord', '~> 1.0.0'
 
 Implement in your User model:
 
@@ -54,22 +56,26 @@ display_name
 admin?
 currently_online
 
-In your Application-Controller you will need:
+In your ApplicationController you will need:
 
 current_user
 login_required
-admin?
 logged_in?
 authorized?
 
+In your ApplicationHelper you will need:
+admin?
+
+
 After you've done that, your forum should be up and ready, you could reach it over server.tld/forums.
-Feel free to overwrite parts of the Forum for your own needs in the application. All of modern_savage_beast's controllers and views are in the Forums-Namespace.
+Feel free to overwrite parts of the Forum for your own needs in the application.
+All of modern_savage_beast's controllers and views are in the Forums namespace.
 
 Feel also free to contribute or ask me some questions. More Information is definitely to come in the Future! :)
 
 
-For additional information on the old savage Beast roots, see http://www.williambharding.com/blog/rails/savage-beast-23-a-rails-22-23-message-forum-plugin/
-
+For additional information on the old savage Beast roots, see
+http://www.williambharding.com/blog/rails/savage-beast-23-a-rails-22-23-message-forum-plugin/
 
 == Contributing to an_axe
  
@@ -83,4 +89,4 @@ For additional information on the old savage Beast roots, see http://www.william
 
 == Copyright
 
-Copyright (c) 2011 Peter Boling. See LICENSE.txt for further details.
+Copyright (c) 2011-12 Peter Boling. See LICENSE.txt for further details.

@@ -1,0 +1,205 @@
+de:
+  savage_beast:
+    beast_title: "Biest"
+    beast_sidebar_title: "Was ist das Biest?"
+    beast_sidebar_body: "Ein kleines und schmales Forum in Rails mit einem bösen Namen und dem Ziel, ein Forum aus ungefähr 500 Zeilen Code zu haben, wenn wir fertig sind."
+    beast_welcome: Willkommen beim Biest
+    
+    forum_title: Forum
+    forums_title: Foren
+    new_forum: Neues Forum
+    edit_forum: Forum editieren
+    save_forum: Forum speichern
+    create_new_forum: Erstelle ein neues Forum
+    
+    forum_is_unmoderated: Dieses Forum ist momentan unmoderiert.
+    please_be_courteous: Bitte benehmt euch und achtet auf die Netiquette!
+    
+    topic_title: Thema
+    Topics_title: Themen
+    edit_topic: Thema editieren
+    delete_topic: Thema löschen
+    new_topic: Neues Thema
+    topic_posted_by: "{{title}} wurde geschrieben von {{user}} @ {{date}}"
+    topic_replied_by: "{{title}} beantwortet von {{user}} @ {{date}}"
+    locked_topic: Dieses Thema ist gesperrt
+    monitoring_topic: Thema beobachten
+    monitor_topic: Thema unter Beobachtung
+    post_topic: Neues Thema erstellen
+    reply_to_topic: Auf das Thema antworten
+    save_reply: Antwort speichern
+    
+    post_title: Beitrag
+    posts_title: Beiträge
+    edit_post: Beitrag editieren
+    delete_post: Beitrag löschen
+    last_post: Letzter Beitrag
+    recent_posts: Neueste Beiträge
+    
+    voices_title: Meinungen
+    monitor_title: Beobachten
+    users_title: Benutzer
+    recent_activity: Neuste Aktivitäten
+    no_recent_activity: Keine neuen Aktivitäten
+    users_online: Benutzer Online
+    change_login: Please change your login
+    gravatar_notice: "Um deinen eigenen Avatar im Forum angezeigt zu bekommen, musst du {{gravatar}} besuchen und dir einen freien Account zulegen."
+    change_email_or_password: Ändere deine eMail oder dein Passwort
+    name_or_login: Name / Login
+    reset_password: Neues Passwort erstellen
+    user_profile: benutzerprofil
+    update_profile: Profil aktualisieren
+    find_a_user: Benutzer finden
+    display_name_or_login: Benutzername oder Login anzeigen
+    users: Benutzer
+    active: aktiv
+    lurking: inaktiv
+    add_as_moderator: Als Moderator hinzufügen
+    user_is_an_administrator: Benutzer ist ein Administrator
+    monitored: beobachtet
+    user_since: Angemeldet seit
+    
+    pages_title: Seiten
+    next_page: Nächste Seite
+    next: "Nächste &raquo;"
+    previous: "&laquo; Vorherige"
+    topics_count: "{{count}} Themen"
+    posts_count: "{{count}} Beiträge"
+    voices_count: "{{count}} Meinungen"
+    posts_count_found: "{{count}} Beiträge gefunden"
+    cancel: abbrechen
+    page: "Seite {{page}}"
+    
+    # field titles
+    admin_title: Admin
+    title_title: Titel
+    position_title: Position
+    description_title: Beschreibung
+    edit_title: Editieren
+    moderators: Moderatoren
+    moderators_title: Moderator
+    views_title: Aufrufe
+    settings_title: Einstellungen
+    logout_title: Abmelden
+    signup_title: Registrieren
+    login_title: Anmelden
+    save_title: Speichern
+    password_title: Passwort
+    sticky_title: Wichtig
+    locked_title: Gesperrt
+    body_title: Inhalt
+    display_name_title: Benutzername
+    identity_url_title: OpenId Adresse
+    website_title: Webseite
+    bio_title: Biographie
+    email_title: Email
+    basics_title: Grundlagen
+    avatars_title: Avatare
+    search_title: Suche
+    
+    by: von
+    save_changes: Änderungen speichern
+    remember_me: Auf diesen Rechner merken
+    delete_conf: "Möchtest du {{thing}} für immer löschen?"
+    email_directions: "Bitte gib deine Email-Adresse ein. Dir wird dann ein neues Passwort zu gesandt werden. Über den enthaltenen Link kannst du dich dann neu anmelden, bitte ändere dein Passwort gleich im Anschluß!"
+    email_submit: Schicke mir den Link per eMail zu.
+    powered_by: Unterstützt von
+    and: und
+    users_monitored_topics: "von {{name}} beobachtete Themen"
+    delete: löschen
+    activation: Bitte klicke auf den folgenden Link um deinen Benutzerkonto zu aktivieren.
+    without_http: ohne http://
+    admin_in_parens: '(Admin)'
+    admin_and_moderation: "Admin & Moderation"
+    remove_moderated_forum: Dieser Benutzer kann die folgenden Foren moderieren. Durch anklicken kannst du Foren von der Liste entfernen.
+    remove_user_as_moderator: Entferne Benutzer als Moderator für
+    searching_for: Suche nach
+    locked: gesperrt
+    edit: editieren
+    delete: löschen
+    login: anmelden
+    once: einmal
+    and_again: und wieder
+    
+    open_id_field: Gib deine OpenId an, falls du eine hast.
+    open_id_field_extended: "Bitte gib deine OpenId an, falls sie dir bekannt ist. Falls sie die {{sreg}} Erweiterung unterstützt, kannst du dich dort mir folgendem Login um automatisch hier einen Account einzurichten."
+    login_field: Benutzernamen sollten mindestens 2 Zeichen haben und dürfen aus Buchstaben, Zahlen und Unterstrichen bestehen.
+    password_field: Gib dein gewünschtes Passwort doppelt ein. Es muss mindestens aus 5 Zeichen bestehen.
+    
+    formatting_help: Formatierungshilfe
+    formatting_bold: "*fett*"
+    formatting_italics: "_schräggestellt_"
+    formatting_blockquote: "bq. <span>(Zitate)</span>"
+    formatting_list: "* or # <span>(Listen/Aufzählungen)</span>"
+    
+    # additions by Raimonds Simanovskis on 2007-05-11
+    or: oder
+    by_user: "von {{user}}"
+    in_forum: "im {{forum}}"
+    a_few_seconds_ago: "vor ein paar Sekunden"
+    1_minute_ago: "vor einer Minute"
+    minutes_ago: "vor {{minutes}} Minuten"
+    1_hour_ago: "vor einer Stunde"
+    hours_ago: "vor {{hours}} Stunden"
+    1_day_ago: "vor einem Tag"
+    days_ago: "vor {{days}} Tagen"
+    
+    topics: Themen
+    posts: Beiträge
+    topic_count: "{{count}} Themen"
+    post_count: "{{count}} Beiträge"
+    voice_count: "{{count}} Meinungen"
+    post_count_found: "{{count}} Beiträge gefunden"
+    
+    comma_locked_topic: ", dieses Thema ist gesperrt."
+    
+    view: betrachten
+    last: letzter
+    
+    administrator_title: Administrator
+    moderator_title: Moderator
+    
+    topic_locked_title: Thema gesperrt
+    
+    recent_posts_in_topic: "Aktuelle Beiträge im '{{topic}}' | Biest"
+    
+    delete_post_conf: "Bist du dir sicher, dass du diesen Beitrag löschen möchtest?"
+    delete_topic_conf: "Bist du dir sicher, dass du dieses Thema löschen möchtest?"
+    
+    date_format: "%b %e, %Y"
+    datetime_format: "%b %e, %Y  %l:%M%p"
+    
+    posts_feed_title: "{{search_posts_title}} | Biest"
+    
+    feed_language: de-de
+    posts_user_is_monitoring: "Von {{user}} beobachtete Themen"
+    
+    view_all: alle
+    
+    for_user: "für {{user}}"
+    
+    signup: Registrieren
+    signup_action: registriere
+    login_action: anmelden
+    
+    check_email_message: "Bitte überprüfe deine eMail"
+    post_something_message: "Bitte schreibe zu mindest irgend etwas..."
+    error_occured_message: "Ein Fehler ist aufgetreten"
+    post_deleted_message: "Der Beitrag '{{title}}' wurde gelöscht."
+    logged_out_message: "Du hast dich abgemeldet."
+    openid_not_found_message: "Entschuldigung, ich kann diesen OpenID server nicht finden."
+    openid_canceled_message: "OpenID Anmeldung wurde abgebrochen"
+    openid_failed_message: "Entschuldigung, diese Anmeldung per OpenID ist gescheitert."
+    openid_saving_error_message: "Ein oder mehrere Fehler trat(en) beim speichern deines OpenID Profils {{identity_url}} auf: {{errors}"
+    openid_no_user_message: "Entschuldigung, es existiert kein Benuter mit der OpenId {{identity_url}}"
+    invalid_login_message: "Ungültiger Benutzername oder falsches Passwort, bitte versuche es noch einmal."
+    topic_deleted_message: "Das Thema '{{title}}' wurde gelöscht."
+    could_not_find_account_message: "Ich kann kein Benutzerkonto mit der eMail Adresse '{{email}}' finden. Hast du sie korrekt eingegeben?"
+    signup_permanent_error_message: "Ich kann wirklich keine Bestätigungsmail an '{{email}}' senden. Bitte überprüfe, ob du sie korrekt angegeben hast."
+    signup_cannot_sent_message: "Die Bestätigungsmal kann momentan nicht an '{{email}}' gesendet werden. Bitte versuche es später noch einmal."
+    temporary_login_message: "Eine temporäre login eMail wurde an '{{email}}' versandt."
+    account_activation_message: "Eine Aktivierungsmail wurde an '{{email}}' versandt."
+    signup_complete_message: "Anmeldung vollständig!"
+    settings_saved_message: "Deine Einstellungen wurden gespeichert."
+    
+    footer_message: "Zwei sind eine Gemeinschaft, drei sind ein Forum, die Masse ist ein Biest."

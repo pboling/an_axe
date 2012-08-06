@@ -1,0 +1,14 @@
+Description:
+    Copies AnAxe public stylesheet assets to public/assets/stylesheets/an_axe/  (Rails > 3.1 placement within asset pipeline path)
+    Copies AnAxe public stylesheet assets to public/stylesheets/an_axe/         (Rails 3.0.X only, or Rails > 3.1 without asset pipeline)
+
+Example:
+    rails generate an_axe:stylesheet --pipeline true
+
+    This will create all the stylesheets an_axe needs in:
+        public/assets/stylesheets/an_axe/
+
+    rails generate an_axe:stylesheet --pipeline false
+
+    This will create all the stylesheets an_axe needs in:
+        public/stylesheets/an_axe

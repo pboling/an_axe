@@ -10,6 +10,7 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 require 'rake'
+include Rake::DSL
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
@@ -17,7 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = "an_axe"
   gem.homepage = "http://github.com/pboling/an_axe"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: Rails 3 Engine implementation of Modern Savage Beast}
+  gem.summary = %Q{Rails 3 Engine implementation of Modern Savage Beast}
   gem.description = %Q{An Axe is a Rails3 update and Enginification of Modern Savage Beast, which is a revision
 of the old Savage Beast Plugin.
 

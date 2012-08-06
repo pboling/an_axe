@@ -1,9 +1,7 @@
 #header
   %ul#nav
     %li
-      = link_to t("savage_beast.forums_title"), forums_forums_path, :rel => 'home'
-    %li
-      = link_to t("savage_beast.users_title"), users_path
+      = link_to t("savage_beast.forums_title"), forums_path, :rel => 'home'
     %li#search
       - form_tag search_all_posts_url, :method => :get do
         = text_field_tag :q, params[:q], :size => 15, :id => :search_box
@@ -12,4 +10,4 @@
     %li.login
       = beast_user_link
   %h1
-    = link_to t("savage_beast.beast_title"), forums_forums_path
+    = link_to t("savage_beast.beast_title"), forums_path

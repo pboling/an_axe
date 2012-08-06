@@ -1,0 +1,41 @@
+- @page_title = search_posts_title
+%h1
+  - if params[:q].blank?
+    = @page_title
+  - else
+    = t("savage_beast.searching_for")
+    '
+    = h params[:q]
+    '
+%p.subtitle
+  = feed_icon_tag @page_title, search_all_posts_path(true)
+  = post_count @posts.total_entries
+= will_paginate @posts
+%table.posts.wide{ :cellspacing => "0", :border => "0", :cellpadding => "0" }
+  - @posts.each do |post|
+    - unless post == @posts.first
+      %tr.spacer
+        %td{ :colspan => "2" }
+          \&nbsp;
+    %tr.post.hentry{ :id => dom_id(post) }
+      %td.author.vcard
+        .date
+          %abbr.updated{ :title => post.created_at.xmlschema }
+            - if post.created_at > Time.now.utc-24.hours
+              = time_ago_in_words(post.created_at).sub(/about /, '')
+            - else
+              = post.created_at.strftime("%b %e, %Y")
+        = avatar_for @users[post.user_id]
+        %span.fn
+          = link_to truncate(h(@users[post.user_id].display_name), 15), user_path(post.user_id)
+        %span.posts
+          = post_count @users[post.user_id].posts.size
+      %td.body.entry-content
+        %p.topic
+          = t("savage_beast.topic_title")
+          \:
+          = link_to h(post.forum.name), forum_path(post.forum_id)
+          \/
+          = link_to h(post.topic.title), forum_topic_path(post.forum_id, post.topic_id)
+        = post.body_html
+= will_paginate @posts

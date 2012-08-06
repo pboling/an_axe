@@ -1,0 +1,14 @@
+Description:
+    Copies AnAxe public image assets to public/assets/images/an_axe/  (Rails > 3.1 placement within asset pipeline path)
+    Copies AnAxe public image assets to public/images/an_axe/         (Rails 3.0.X only, or Rails > 3.1 without asset pipeline)
+
+Example:
+    rails generate an_axe:image --pipeline true
+
+    This will create all the images an_axe needs in:
+        public/assets/images/an_axe/
+
+    rails generate an_axe:image --pipeline false
+
+    This will create all the images an_axe needs in:
+        public/images/an_axe
