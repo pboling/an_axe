@@ -1,5 +1,5 @@
 require 'digest/md5'
-#module AnAxe
+module AnAxe
   module ApplicationHelper
     include AnAxe::AuthenticationStub
 
@@ -79,4 +79,4 @@ require 'digest/md5'
     end
 
   end
-#end
+end
