@@ -30,41 +30,43 @@ Install from source, as it is not yet released to RubyGems.org
 All of the following *may be wrong* or not work.
 I am first upgrading an existing installation of Modern Savage Beast, and then will get to a proper setup.
 
-> rake ax_axe:bootstrap_db
-> rake ax_axe:bootstrap_assets
-> rake ax_axe:add_gems
-> rake ax_axe:add_includes #assumes that your User-Model is called user.rb
+  rake ax_axe:bootstrap_db
+  rake ax_axe:bootstrap_assets
+  rake ax_axe:add_gems
+  rake ax_axe:add_includes #assumes that your User-Model is called user.rb
 
 (savage_beast rake tasks have been deprecated)
 
 You will also need some plugins to use an axe?
-white_list ?
-white_list_formatted_content ?
+
+  white_list ?
+  white_list_formatted_content ?
 
 These gem dependencies will be added to your app (along with their dependencies):
-gem 'will_paginate', '~> 3.0.0'
-gem 'acts_as_list', :git => 'git://github.com/chaffeqa/acts_as_list.git' # -acts_as_list-
-gem 'acts-as-taggable-on', '~> 2.0' # -acts_as_taggable_on-
 
-# TODO: Not sure yet how to implement the sanitization of fields
-#gem 'loofah', '~> 1.0.0'
-#gem 'loofah-activerecord', '~> 1.0.0'
+  gem 'will_paginate', '~> 3.0.0'
+  gem 'acts_as_list', :git => 'git://github.com/chaffeqa/acts_as_list.git' # -acts_as_list-
+  gem 'acts-as-taggable-on', '~> 2.0' # -acts_as_taggable_on-
+  # TODO: Not sure yet how to implement the sanitization of fields, but trying to remove loofah dependency
+  #gem 'loofah', '~> 1.0.0'
+  #gem 'loofah-activerecord', '~> 1.0.0'
 
 Implement in your User model:
 
-display_name
-admin?
-currently_online
+  display_name
+  admin?
+  currently_online
 
 In your ApplicationController you will need:
 
-current_user
-login_required
-logged_in?
-authorized?
+  current_user
+  login_required
+  logged_in?
+  authorized?
 
 In your ApplicationHelper you will need:
-admin?
+
+  admin?
 
 
 After you've done that, your forum should be up and ready, you could reach it over server.tld/forums.
