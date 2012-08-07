@@ -19,13 +19,16 @@ Goals:
   Seamless Upgrade from some flavors of (Modern) Savage Beast
   Maintain compatibility with current Rails and Ruby releases.
 
-This version of (Modern Savage Beast with) An Axe has been tested almost working in Rails 3.1.
+This version of (Modern Savage Beast with) An Axe has been tested almost working in Rails 3.2.
 
 == Installation
 
 Install from source, as it is not yet released to RubyGems.org
 
 == Setup
+
+All of the following *may be wrong* or not work.
+I am first upgrading an existing installation of Modern Savage Beast, and then will get to a proper setup.
 
 > rake ax_axe:bootstrap_db
 > rake ax_axe:bootstrap_assets
