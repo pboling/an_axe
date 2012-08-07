@@ -23,11 +23,7 @@ This version of (Modern Savage Beast with) An Axe has been tested almost working
 
 == Installation
 
-Add 'an_axe' to your Gemfile.
-
-gem 'an_axe', '0.0.1'
-
-Then bundle install to pull in the dependencies.
+Install from source, as it is not yet released to RubyGems.org
 
 == Setup
 
