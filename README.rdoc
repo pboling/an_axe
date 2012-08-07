@@ -10,9 +10,10 @@ it incorporates a lot of features that would be a time-consuming headache for yo
 to implement yourself.
 
 Differences from what may or may not be in any of the ancestors of An Axe:
+  Allow forums to be scoped through another class, like account/subdomain/group/whatever
   Views are now HAML
   I18n api for static text (no more gettext/gibberish)
-  Works with Rails 3.X and Ruby 1.9.2
+  Works with Rails 3.2 and Ruby 1.9.3 (older versions of rails back to 3.1 and ruby back to 1.9.2 may work)
 
 Goals:
   Seamless Upgrade from some flavors of (Modern) Savage Beast
