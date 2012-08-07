@@ -14,7 +14,7 @@ module AnAxe
         respond_to do |format|
           format.html { redirect_to forum_path(params[:forum_id]) }
           format.xml do
-            @topics = Topic.paginate_by_forum_id(params[:forum_id], :order => 'sticky desc, replied_at desc', :page => params[:page])
+            @topics = AnAxe::Topic.paginate_by_forum_id(params[:forum_id], :order => 'sticky desc, replied_at desc', :page => params[:page])
             render :xml => @topics.to_xml
           end
         end
@@ -35,10 +35,10 @@ module AnAxe
             # keep track of when we last viewed this topic for activity indicators
             (session[:topics] ||= {})[@topic.id] = Time.now.utc if logged_in?
             # authors of topics don't get counted towards total hits
-            @topic.hit! unless logged_in? and @topic.user == current_user
+            @topic.hit! unless logged_in? and @topic.send(AnAxe::Config.user_relation) == current_user
             @posts = @topic.posts.paginate :page => params[:page]
-            User.find(:all, :conditions => ['id IN (?)', @posts.collect { |p| p.user_id }.uniq]) unless @posts.blank?
-            @post   = Post.new
+            AnAxe::Config.user_class.find(:all, :conditions => ['id IN (?)', @posts.collect { |p| p.user_id }.uniq]) unless @posts.blank?
+            @post   = AnAxe::Post.new
           end
           format.xml do
             render :xml => @topic.to_xml
@@ -53,7 +53,7 @@ module AnAxe
       def create
         topic_saved, post_saved = false, false
         # this is icky - move the topic/first post workings into the topic model?
-        Topic.transaction do
+        AmAxe::Topic.transaction do
           @topic  = @forum.topics.build(params[:topic])
           assign_protected
           @post = @topic.posts.build(params[:topic])
@@ -63,7 +63,7 @@ module AnAxe
           @post.body_list = params[:topic]['body_list'] if params[:topic]['body_list']
 
           @post.topic = @topic
-          @post.user  = current_user
+          @post.send("#{AnAxe::Config.user_relation}=", current_user)
           # only save topic if post is valid so in the view topic will be a new record if there was an error
           @topic.body = @post.body # incase save fails and we go back to the form
           topic_saved = @topic.save if @post.valid?
@@ -101,7 +101,7 @@ module AnAxe
 
       protected
         def assign_protected
-          @topic.user     = current_user if @topic.new_record?
+          @topic.send("#{AnAxe::Config.user_relation}=", current_user) if @topic.new_record?
           # admins and moderators can sticky and lock topics
           return unless admin? or current_user.moderator_of?(@topic.forum)
           @topic.sticky, @topic.locked = params[:topic][:sticky], params[:topic][:locked]
@@ -111,7 +111,7 @@ module AnAxe
         end
 
         def find_forum_and_topic
-          @forum = Forum.find(params[:forum_id])
+          @forum = AnAxe::Forum.find(params[:forum_id])
           @topic = @forum.topics.find(params[:id]) if params[:id]
         end
 

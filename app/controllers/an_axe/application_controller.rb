@@ -1,6 +1,6 @@
 module AnAxe
   class ApplicationController < ::ApplicationController
-    include AnAxe::AuthenticationStub
+    #include AnAxe::AuthenticationStub
     helper AnAxe::ApplicationHelper
 
     unloadable

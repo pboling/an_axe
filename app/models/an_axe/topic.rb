@@ -15,6 +15,10 @@ module AnAxe
 
     has_many :posts,     :order => "#{Post.table_name}.created_at", :dependent => :delete_all
     has_one  :recent_post, :order => "#{Post.table_name}.created_at DESC", :class_name => 'Post'
+    def user
+      self.send(AnAxe::Config.user_relation)
+    end
+
 
     attr_accessible :title
 

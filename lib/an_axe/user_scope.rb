@@ -37,7 +37,7 @@ module AnAxe
             end
           else
             #eg: User.currently_online
-            ActiveSupport::Deprecation.warn("AnAxe Setup: Define the method :currently_online in the #{self.class} class")
+            ActiveSupport::Deprecation.warn("AnAxe Setup: Define the method :currently_online in the #{self} class")
             []
           end
         end

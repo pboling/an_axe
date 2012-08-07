@@ -7,6 +7,9 @@ module AnAxe
 
     belongs_to :forum, :counter_cache => true
     belongs_to :topic, :counter_cache => true
+    def user
+      self.send(AnAxe::Config.user_relation)
+    end
 
   # TODO: Consider switching away from Loofah
   #  extend Loofah::ActiveRecordExtension
@@ -57,7 +60,7 @@ module AnAxe
       # using count isn't ideal but it gives us correct caches each time
       def update_cached_fields
         Forum.update_all ['posts_count = ?', Post.count(:id, :conditions => {:forum_id => forum_id})], ['id = ?', forum_id]
-        User.update_posts_count(user_id)
+        AnAxe::Config.user_class.update_posts_count(user_id) if AnAxe::Config.user_class.respond_to?(:update_posts_count)
         topic.update_cached_post_fields(self)
       end
   end

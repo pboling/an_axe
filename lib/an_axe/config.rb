@@ -57,6 +57,11 @@ module AnAxe
       self.settings[:forum_scoped_method]
     end
 
+    # as a symbol
+    def self.user_relation
+      AnAxe::Config.settings[:user_class].underscore.downcase.to_sym
+    end
+
     def self.logger
       AnAxe::Config.settings[:logger]
     end

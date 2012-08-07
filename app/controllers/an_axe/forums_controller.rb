@@ -1,6 +1,5 @@
 module AnAxe
   class ForumsController < AnAxe::ApplicationController
-    layout 'an_axe'
     helper AnAxe::ForumsHelper
 
     before_filter :login_required, :except => [:index, :show]

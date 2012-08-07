@@ -14,18 +14,18 @@ module AnAxe
         [:user_id, :forum_id, :topic_id].each { |attr| conditions << Post.send(:sanitize_sql, ["#{Post.table_name}.#{attr} = ?", params[attr]]) if params[attr] }
         conditions = conditions.empty? ? nil : conditions.collect { |c| "(#{c})" }.join(' AND ')
         @posts = Post.paginate @@query_options.merge(:conditions => conditions, :page => params[:page], :count => {:select => "#{Post.table_name}.id"}, :order => post_order)
-        @users = User.find(:all, :select => 'distinct *', :conditions => ['id in (?)', @posts.collect(&:user_id).uniq]).index_by(&:id)
+        @users = AnAxe::Config.user_class.find(:all, :select => 'distinct *', :conditions => ['id in (?)', @posts.collect(&:user_id).uniq]).index_by(&:id)
         render_posts_or_xml
       end
 
       def search
         @posts = Post.search(params[:q], :page => params[:page])
-        @users = User.find(:all, :select => 'distinct *', :conditions => ['id in (?)', @posts.collect(&:user_id).uniq]).index_by(&:id)
+        @users = AnAxe::Config.user_class.find(:all, :select => 'distinct *', :conditions => ['id in (?)', @posts.collect(&:user_id).uniq]).index_by(&:id)
         render_posts_or_xml :index
       end
 
       def monitored
-        @user = User.find params[:user_id]
+        @user = AnAxe::Config.user_class.find params[:user_id]
         options = @@query_options.merge(:conditions => ["#{Monitorship.table_name}.user_id = ? and #{Post.table_name}.user_id != ? and #{Monitorship.table_name}.active = ?", params[:user_id], @user.id, true])
         options[:order]  = post_order
         options[:joins] += " inner join #{Monitorship.table_name} on #{Monitorship.table_name}.topic_id = #{Topic.table_name}.id"
@@ -59,7 +59,7 @@ module AnAxe
         @forum = @topic.forum
         @post  = @topic.posts.build(params[:post])
         @post.body_list = params[:post]['body_list'] if params[:post]['body_list']
-        @post.user = current_user
+        @post.send("#{AnAxe::Config.user_relation}=", current_user)
         @post.save!
         respond_to do |format|
           format.html do

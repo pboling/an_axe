@@ -1,7 +1,7 @@
 require 'digest/md5'
 module AnAxe
   module ApplicationHelper
-    include AnAxe::AuthenticationStub
+    #include AnAxe::AuthenticationStub
 
     def all_forums
       AnAxe::Forum.an_axe_forums
